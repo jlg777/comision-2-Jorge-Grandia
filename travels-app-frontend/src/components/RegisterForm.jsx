@@ -28,7 +28,7 @@ function RegisterForm() {
       password,
     };
 
-    const req = await fetch(`http://localhost:4000/api/auth/register`, {
+    const req = await fetch(`http://localhost:3000/api/auth/register`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -53,11 +53,21 @@ function RegisterForm() {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formRegisterEmail">
-        <Form.Control type="email" placeholder="Email" name="email" autoComplete="email"/>
+        <Form.Control
+          type="email"
+          placeholder="Email"
+          name="email"
+          autoComplete="email"
+        />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formRegisterUserName">
-        <Form.Control type="text" placeholder="Jonh Doe" name="username" autoComplete="username"/>
+        <Form.Control
+          type="text"
+          placeholder="Jonh Doe"
+          name="username"
+          autoComplete="username"
+        />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formRegisterPassword">
