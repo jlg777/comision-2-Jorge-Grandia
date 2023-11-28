@@ -3,10 +3,10 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 
-import { startConnection } from "./settings/database.js";
-import { configEnv } from "./settings/config.env.js";
+import { startConnection } from "../travels-app-backend/src/settings/database.js";
+import { configEnv } from "../travels-app-backend/src/settings/config.env.js";
 
-import { authRouter } from "./routes/authRouter.js";
+import { authRouter } from "./src/routes/authRouter.js";
 
 const app = express();
 
