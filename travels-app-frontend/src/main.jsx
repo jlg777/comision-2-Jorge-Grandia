@@ -5,9 +5,11 @@ import AppPrivateRouter from "./routes/PrivateRoutes.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { Footer } from "./components/Footer.jsx";
 import { NavbarApp } from "./components/navBar.jsx";
+import AuthProvider from "./providers/AuthProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <AuthProvider>
     <BrowserRouter>
       <NavbarApp />
       <AppPublickRouter>
@@ -15,5 +17,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </AppPublickRouter>
       <Footer />
     </BrowserRouter>
+    </AuthProvider>
   </React.StrictMode>
 );
