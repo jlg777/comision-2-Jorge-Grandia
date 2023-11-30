@@ -11,6 +11,7 @@ function AppPublickRouter() {
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/post" element={<PostPage />} />
 
       <Route path="*" element={<Outlet />} />
     </Routes>
