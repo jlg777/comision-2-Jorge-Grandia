@@ -1,12 +1,13 @@
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import IndexPage from "../pages/IndexPage";
 import PrivateRoutes from "../components/PrivateRoutes";
+import PostPage from "../pages/PostPage";
 
 function AppPrivateRouter() {
   return (
-    <Route element={<PrivateRoutes />}>
-      <Route path="/app/index" element={<IndexPage />} />
-    </Route>
+    <Routes element={<PrivateRoutes />}>
+      <Route path="/index" element={<IndexPage />} />
+    </Routes>
   );
 }
 export default AppPrivateRouter;
