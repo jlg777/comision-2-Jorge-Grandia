@@ -2,6 +2,10 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import Button from "react-bootstrap/Button";
+import { BsPersonFill } from "react-icons/bs";
+
+
 
 export const NavbarApp = () => {
   return (
@@ -42,6 +46,7 @@ export const NavbarApp = () => {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
+            <Button variant="outline-secondary"><BsPersonFill /></Button>{" "}
           </Nav>
         </Navbar.Collapse>
       </Container>

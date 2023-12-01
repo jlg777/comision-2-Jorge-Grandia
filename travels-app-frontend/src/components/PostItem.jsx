@@ -2,6 +2,8 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
+import { BsFillTrash3Fill } from "react-icons/bs";
+import { BsEyeFill } from "react-icons/bs";
 
 const PostItem = ({
   title,
@@ -25,8 +27,12 @@ const PostItem = ({
           <ListGroup.Item>{CreatedAt}</ListGroup.Item>
         </ListGroup>
         <Card.Body>
-          <Button variant="outline-success">Ver</Button>{" "}
-          <Button variant="outline-danger">Danger</Button>{" "}
+          <Button variant="outline-success">
+            <BsEyeFill />
+          </Button>{" "}
+          <Button variant="outline-danger">
+            <BsFillTrash3Fill />
+          </Button>{" "}
         </Card.Body>
       </Card>
     </div>
