@@ -8,10 +8,10 @@ import { BsEyeFill } from "react-icons/bs";
 const PostItem = ({
   title,
   description,
-  autor,
+  username,
   comments,
   image,
-  CreatedAt,
+  createdAt,
 }) => {
   return (
     <div className="container-fluid d-flex  flex-colum justify-content-center align-items-center">
@@ -22,9 +22,9 @@ const PostItem = ({
           <Card.Text>{description}</Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroup.Item>{autor}</ListGroup.Item>
+          <ListGroup.Item>{username}</ListGroup.Item>
           <ListGroup.Item>{comments}</ListGroup.Item>
-          <ListGroup.Item>{CreatedAt}</ListGroup.Item>
+          <ListGroup.Item>{createdAt}</ListGroup.Item>
         </ListGroup>
         <Card.Body>
           <Button variant="outline-success">

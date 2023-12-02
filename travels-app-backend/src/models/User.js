@@ -3,7 +3,7 @@ import * as bcrypt from "bcrypt";
 
 const UserSchema = new Schema(
   {
-    avatar: {
+    image: {
       type: String,
       required: true,
     },
@@ -21,10 +21,10 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    playlists: [
+    posts: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Playlist",
+        ref: "posts",
       },
     ],
   },

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -6,10 +6,22 @@ import Col from "react-bootstrap/Col";
 import PostItem from "../components/PostItem";
 
 const PostPage = () => {
+  const [posts, setPosts] = useState([null]);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/post`, {
+      headers: {},
+    })
+      .then((res) => res.json())
+      .then((data) => setPosts(data))
+      .catch((err) => console.log(err));
+  }, []);
+  console.log(posts);
+
   return (
     <>
       <div>PostPage</div>
-      <Form className="container-fluid d-flex  flex-colum justify-content-center align-items-center">
+      <Form className="container-fluid d-flex  flex-column justify-content-center align-items-center">
         <Row>
           <Col xs="auto">
             <Button variant="outline-success" href="NewPostPage">
@@ -30,14 +42,17 @@ const PostPage = () => {
           </Col>
         </Row>
       </Form>
-      <PostItem
-        title={"Titulo"}
-        description={"Descripcion"}
-        autor={"Autor"}
-        comments={"Comentarios"}
-        image={"./reserva.jpg"}
-        CreatedAt={"Creacion"}
-      />
+      {posts.map((post) => (
+        <PostItem
+          key={post._id}
+          title="post.title"
+          description="post.description"
+          username={post?.username}
+          comments="post.comments"
+          image="{post.image}"
+          createdAt="{post.createdAt}"
+        />
+      ))}
     </>
   );
 };

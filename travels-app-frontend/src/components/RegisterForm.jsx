@@ -16,13 +16,13 @@ function RegisterForm() {
 
     const formData = new FormData(e.target);
 
-    const avatar = formData.get("avatar");
+    const image = formData.get("image");
     const email = formData.get("email");
     const username = formData.get("username");
     const password = formData.get("password");
 
     const user = {
-      avatar,
+      image,
       email,
       username,
       password,
@@ -60,11 +60,11 @@ function RegisterForm() {
         ></path>
       </svg>
       <h1 className="h3 mb-3 fw-normal">REGISTRESE</h1>
-      <Form.Group className="mb-3" controlId="formRegisterAvatar">
+      <Form.Group className="mb-3" controlId="formRegisterImage">
         <Form.Control
           type="link"
           placeholder="www.my-avatar.com"
-          name="avatar"
+          name="image"
         />
       </Form.Group>
 

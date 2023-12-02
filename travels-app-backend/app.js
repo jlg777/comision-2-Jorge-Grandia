@@ -7,6 +7,7 @@ import { startConnection } from "../travels-app-backend/src/settings/database.js
 import { configEnv } from "../travels-app-backend/src/settings/config.env.js";
 
 import { authRouter } from "./src/routes/authRouter.js";
+import { postRouter } from "./src/routes/postRouter.js";
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(helmet());
 app.use(morgan("dev"));
 
 app.use("/api/auth", authRouter);
+app.use("/", postRouter);
 
 app.listen(configEnv.PORT, async () => {
   await startConnection({
