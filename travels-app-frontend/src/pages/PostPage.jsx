@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import PostItem from "../components/PostItem";
 
 const PostPage = () => {
-  const [posts, setPosts] = useState([null]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:3000/post`, {
@@ -47,7 +47,7 @@ const PostPage = () => {
           key={post._id}
           title="post.title"
           description="post.description"
-          username={post?.username}
+          username={post.username}
           comments="post.comments"
           image="{post.image}"
           createdAt="{post.createdAt}"
