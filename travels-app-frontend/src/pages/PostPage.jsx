@@ -16,7 +16,7 @@ const PostPage = () => {
       .then((data) => setPosts(data))
       .catch((err) => console.log(err));
   }, []);
-  console.log(posts);
+  console.log("Posts:", posts);
 
   return (
     <>
@@ -42,17 +42,18 @@ const PostPage = () => {
           </Col>
         </Row>
       </Form>
-      {posts.map((post) => (
         <PostItem
-          key={post._id}
-          title="post.title"
+        posts={posts}
+        
+          /*           title="post.title" 
           description="post.description"
-          username={post?.username}
+          username="{posts.username}"
           comments="post.comments"
           image="{post.image}"
-          createdAt="{post.createdAt}"
+          createdAt="{post.createdAt}" */
+        
+
         />
-      ))}
     </>
   );
 };
