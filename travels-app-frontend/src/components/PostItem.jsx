@@ -13,7 +13,7 @@ const PostItem = ({
   image,
   createdAt,
 }) => {
-  return (
+  return (          
     <div className="container-fluid d-flex  flex-colum justify-content-center align-items-center">
       <Card style={{ width: "25rem" }}>
         <Card.Img variant="top" src={image} />
