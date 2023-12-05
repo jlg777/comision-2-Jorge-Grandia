@@ -5,7 +5,7 @@ export const ctrlListPosts = async (req, res) => {
   try {
     // Aquí puedes realizar alguna lógica para obtener la lista de publicaciones
     //console.log(res);
-    const postlists = await UserModel.find();
+    const postlists = await PostModel.find();
     // Enviar la lista de publicaciones como respuesta
     res.status(200).json(postlists);
   } catch (error) {
@@ -24,7 +24,7 @@ export const ctrlCreatePost = async (req, res) => {
 
     const postlist = new PostModel({
       title,
-     //username: userName,
+      //username: userName,
     });
 
     await postlist.save();
