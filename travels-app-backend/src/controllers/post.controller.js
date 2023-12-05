@@ -1,3 +1,4 @@
+import { PostModel } from "../models/PostModel.js";
 import { UserModel } from "../models/User.js";
 
 export const ctrlListPosts = async (req, res) => {
@@ -12,5 +13,24 @@ export const ctrlListPosts = async (req, res) => {
     res
       .status(500)
       .json({ error: "Error al obtener la lista de publicaciones" });
+  }
+};
+
+export const ctrlCreatePost = async (req, res) => {
+  //const userName = "Jonh Doe";
+
+  try {
+    const { title } = req.body;
+
+    const postlist = new PostModel({
+      title,
+     //username: userName,
+    });
+
+    await postlist.save();
+
+    return res.status(201).json(postlist);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
   }
 };
