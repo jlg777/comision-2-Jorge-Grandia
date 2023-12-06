@@ -1,4 +1,3 @@
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import AppPublickRouter from "./routes/PublicRoutes.jsx";
@@ -11,13 +10,13 @@ import AuthProvider from "./providers/AuthProvider.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-    <BrowserRouter>
-      <NavbarApp />
-      <AppPublickRouter>
-        <AppPrivateRouter />
-      </AppPublickRouter>
-      <Footer />
-    </BrowserRouter>
+      <BrowserRouter>
+        <NavbarApp />
+        <AppPublickRouter>
+          <AppPrivateRouter />
+        </AppPublickRouter>
+        <Footer />
+      </BrowserRouter>
     </AuthProvider>
   </React.StrictMode>
 );

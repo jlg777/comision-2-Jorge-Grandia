@@ -32,8 +32,8 @@ export const NavbarApp = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/register">Registro</Nav.Link>
-            <Nav.Link href="posts">Posts</Nav.Link>
-            <Button href="login" variant="outline-secondary" >
+            <Nav.Link href="post">Posts</Nav.Link>
+            <Button href="login" variant="outline-secondary">
               <BsPersonFill />
             </Button>{" "}
           </Nav>

@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { BsEyeFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
-const PostItem = ({posts}) => {
+const PostItem = ({ posts }) => {
+  console.log("aca", posts);
+  const navigate = useNavigate();
+
   const handleDelete = async (postsID) => {
-   return await fetch(`http://localhost:3000/post/${postsID}`, {
+    return await fetch(`http://localhost:3000/post/${postsID}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
     });
-  }
+  };
+
   return (
     <>
       {posts.map((post) => (
@@ -37,14 +42,15 @@ const PostItem = ({posts}) => {
                 <BsEyeFill />
               </Button>{" "}
               <Button variant="outline-danger">
-                <BsFillTrash3Fill 
-                onClick = {() => 
-                  handleDelete()
-                  .then(res=>{
-                    if (res.status != 200)
-                    alert('No se elimina')
-                  else  alert('Se elimina')
-                  })}/>
+                <BsFillTrash3Fill
+                  onClick={() =>
+                    handleDelete(post._id).then((res) => {
+                      if (res.status != 200) alert("No se elimina");
+                      else alert("Se elimina");
+                      navigate("/");
+                    })
+                  }
+                />
               </Button>{" "}
             </Card.Body>
           </Card>
