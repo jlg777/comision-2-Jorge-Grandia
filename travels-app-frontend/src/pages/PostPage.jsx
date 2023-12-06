@@ -23,7 +23,7 @@ const PostPage = () => {
       <Form className="container-fluid d-flex  flex-column justify-content-center align-items-center">
         <Row>
           <Col xs="auto">
-            <Button variant="outline-success" href="NewPostPage">
+            <Button variant="outline-success" href="newPostPage">
               Create
             </Button>{" "}
           </Col>

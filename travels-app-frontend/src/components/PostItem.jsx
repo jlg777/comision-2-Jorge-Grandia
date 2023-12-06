@@ -38,7 +38,7 @@ const PostItem = ({ posts }) => {
               <ListGroup.Item>{post.createdAt}</ListGroup.Item>
             </ListGroup>
             <Card.Body>
-              <Button variant="outline-success">
+              <Button variant="outline-success" href="travelPage">
                 <BsEyeFill />
               </Button>{" "}
               <Button variant="outline-danger">

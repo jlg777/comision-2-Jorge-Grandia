@@ -5,6 +5,7 @@ import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
 import PostPage from "../pages/PostPage";
 import NewPostPage from "../pages/NewPostPage";
+import TravelPage from "../pages/TravelPage";
 
 function AppPublickRouter() {
   return (
@@ -13,7 +14,8 @@ function AppPublickRouter() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/post" element={<PostPage />} />
-      <Route path="/NewPostPage" element={<NewPostPage />} />
+      <Route path="/newPostPage" element={<NewPostPage />} />
+      <Route path="/travelPage/:travelID" element={<TravelPage />} />
 
       <Route path="*" element={<Outlet />} />
     </Routes>
