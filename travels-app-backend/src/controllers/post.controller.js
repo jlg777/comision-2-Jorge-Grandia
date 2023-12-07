@@ -20,10 +20,12 @@ export const ctrlCreatePost = async (req, res) => {
   //const userName = "Jonh Doe";
 
   try {
-    const { title } = req.body;
+    const { title, description, imageURL } = req.body;
 
     const postlist = new PostModel({
       title,
+      description,
+      imageURL
       //username: userName,
     });
 

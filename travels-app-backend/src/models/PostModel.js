@@ -1,25 +1,37 @@
 import { Schema } from "mongoose";
 import { model } from "mongoose";
 
-const Postchema = new Schema({
+const Postchema = new Schema(
+  {
     title: {
       type: String,
       required: true,
     },
+    description: {
+      type: String,
+      required: true,
+    },
+    autor: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
     comments: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Comments',
+        ref: "Comments",
       },
     ],
-    /*username: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },*/
-  }, {
+    imageURL: {
+      type: String,
+      required: false,
+    },
+  },
+  {
     timestamps: true,
     versionKey: false,
-  });
-  
-  export const PostModel = model('Post', Postchema);
+  }
+);
+
+export const PostModel = model("Post", Postchema);
