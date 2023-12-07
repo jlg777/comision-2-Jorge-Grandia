@@ -3,7 +3,12 @@ import * as bcrypt from "bcrypt";
 
 const UserSchema = new Schema(
   {
-    image: {
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
       type: String,
       required: true,
     },
@@ -12,12 +17,7 @@ const UserSchema = new Schema(
       required: true,
       unique: true,
     },
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    password: {
+    avatarURL: {
       type: String,
       required: true,
     },
