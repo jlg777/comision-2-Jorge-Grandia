@@ -15,7 +15,7 @@ En el directorio de cada carpeta debes descargar las dependencias
 
 ### `npm i`
 
-En el directorio de la carpeta del backend debes configurar lasvariables de entorno 
+En el directorio de la carpeta del backend debes configurar las variables de entorno 
 
 ### `.envexample`
 
