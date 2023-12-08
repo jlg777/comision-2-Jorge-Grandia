@@ -6,6 +6,7 @@ import LoginPage from "../pages/LoginPage";
 import PostPage from "../pages/PostPage";
 import NewPostPage from "../pages/NewPostPage";
 import TravelPage from "../pages/TravelPage";
+import Error404Page from "../pages/Error404Page";
 
 function AppPublickRouter() {
   return (
@@ -17,7 +18,7 @@ function AppPublickRouter() {
       <Route path="/newPostPage" element={<NewPostPage />} />
       <Route path="/travelPage/:travelID" element={<TravelPage />} />
 
-      <Route path="*" element={<Outlet />} />
+      <Route path="*" element={<Error404Page />} />
     </Routes>
   );
 }
