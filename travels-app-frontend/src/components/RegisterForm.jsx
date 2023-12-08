@@ -15,17 +15,16 @@ function RegisterForm() {
     // const { avatar, email, username, password } = e.target.elements;
 
     const formData = new FormData(e.target);
-
-    const image = formData.get("image");
-    const email = formData.get("email");
     const username = formData.get("username");
     const password = formData.get("password");
+    const email = formData.get("email");
+    const avatarURL = formData.get("image");
 
     const user = {
-      image,
-      email,
       username,
       password,
+      email,
+      avatarURL,
     };
 
     const req = await fetch(`http://localhost:3000/api/auth/register`, {
@@ -35,7 +34,6 @@ function RegisterForm() {
         "Content-Type": "application/json",
       },
     });
-
     if (req.status !== 201) return alert("Error al registrar usuario");
     ref.current.reset();
     navigate("/login");
@@ -60,23 +58,6 @@ function RegisterForm() {
         ></path>
       </svg>
       <h1 className="h3 mb-3 fw-normal">REGISTRESE</h1>
-      <Form.Group className="mb-3" controlId="formRegisterImage">
-        <Form.Control
-          type="link"
-          placeholder="www.my-avatar.com"
-          name="image"
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formRegisterEmail">
-        <Form.Control
-          type="email"
-          placeholder="Email"
-          name="email"
-          autoComplete="email"
-        />
-      </Form.Group>
-
       <Form.Group className="mb-3" controlId="formRegisterUserName">
         <Form.Control
           type="text"
@@ -93,6 +74,19 @@ function RegisterForm() {
           autoComplete="current-password"
           name="password"
         />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formRegisterEmail">
+        <Form.Control
+          type="email"
+          placeholder="Email"
+          name="email"
+          autoComplete="email"
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formRegisterImage">
+        <Form.Control type="link" placeholder="my-avatar" name="image" />
       </Form.Group>
 
       <Button variant="primary" type="submit">
