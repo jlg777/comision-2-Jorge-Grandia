@@ -27,7 +27,7 @@ const PostItem = ({ posts }) => {
           key={post._id}
         >
           <Card style={{ width: "25rem" }}>
-            <Card.Img variant="top" src={post.image} />
+            <Card.Img variant="top" src={post.imageURL} />
             <Card.Body>
               <Card.Title>{post.title}</Card.Title>
               <Card.Text>{post.description}</Card.Text>
