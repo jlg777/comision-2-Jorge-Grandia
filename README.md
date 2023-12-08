@@ -32,8 +32,6 @@ Esta pagina se recargará cuando se realicen cambios.
 
 Cuando sea el momento de implementar tu aplicación en producción, simplemente ejecuta el comando vite build. De forma predeterminada, este utiliza <raíz>/index.html como punto de entrada de compilación y produce un empaquetado de aplicación que es adecuado para ser servido a través de un servicio de alojamiento estático. Para mas [informacion](https://vitejs.dev/)`...`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
 
 ## 
 
