@@ -12,9 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <AuthProvider>
       <BrowserRouter>
         <NavbarApp />
-        <AppPublickRouter>
-          <AppPrivateRouter />
-        </AppPublickRouter>
+        <AppPublickRouter />
         <Footer />
       </BrowserRouter>
     </AuthProvider>

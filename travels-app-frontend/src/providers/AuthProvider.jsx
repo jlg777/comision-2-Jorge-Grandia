@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 export const AuthContext = createContext();
 
 function AuthProvider({ children }) {
-  const [auth, setAuth] = useState(undefined);
+  const [auth, setAuth] = useState(null);
 
   const login = ({ user, token }) => {
     setAuth({ user, token });
@@ -19,23 +19,22 @@ function AuthProvider({ children }) {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      const user = JSON.parse(localStorage.getItem("user"));
-      const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("user"));
+    const token = localStorage.getItem("token");
 
-      // si no tenemos alguno de los dos campos en el localStorage borramos todo
-      if (!user || !token) {
-        localStorage.removeItem("user");
-        localStorage.removeItem("token");
+    // si no tenemos alguno de los dos campos en el localStorage borramos todo
+    if (!user || !token) {
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
 
-        setAuth(null);
-        return;
-      }
+      setAuth(null);
+      return;
+    }
 
-      setAuth({ user, token });
-    }, 1000);
+    setAuth({ user, token });
   }, []);
 
+ console.log(auth); 
   return (
     <AuthContext.Provider value={{ auth, login, logout }}>
       {children}

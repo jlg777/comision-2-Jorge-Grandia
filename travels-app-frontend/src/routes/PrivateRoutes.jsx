@@ -5,7 +5,7 @@ import PrivateRoutes from "../components/PrivateRoutes";
 function AppPrivateRouter() {
   return (
     <Routes element={<PrivateRoutes />}>
-      <Route path="/index" element={<IndexPage />} />
+      <Route path="/index1" element={<IndexPage />} />
     </Routes>
   );
 }
