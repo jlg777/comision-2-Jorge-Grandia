@@ -15,16 +15,16 @@ import { AuthContext } from "../providers/AuthProvider";
 
 
 export const NavbarApp = () => {
-  const {auth} = useContext(AuthContext);
+  const {auth, isLogin} = useContext(AuthContext);
 
-  const [isLogin, setisLogin] = useState(false);
-  useEffect(() => {
-if(localStorage.getItem("user")){
-  setisLogin(true)
+  //const [isLogin, setisLogin] = useState(false);
+ // useEffect(() => {
+//if(localStorage.getItem("user")){
+ // setisLogin(true)
   
-}
+//}
 
-}, []);
+//}, []);
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">

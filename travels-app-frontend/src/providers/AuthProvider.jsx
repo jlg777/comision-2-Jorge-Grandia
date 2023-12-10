@@ -4,18 +4,23 @@ export const AuthContext = createContext();
 
 function AuthProvider({ children }) {
   const [auth, setAuth] = useState(null);
+  const [isLogin, setisLogin] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const login = ({ user, token }) => {
     setAuth({ user, token });
 
     localStorage.setItem("token", token);
     localStorage.setItem("user", JSON.stringify(user));
+    setisLogin(true);
   };
 
   const logout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     setAuth(null);
+    setLoading(false);
+    setisLogin(false);
   };
 
   useEffect(() => {
@@ -27,18 +32,20 @@ function AuthProvider({ children }) {
       localStorage.removeItem("user");
       localStorage.removeItem("token");
 
+      setisLogin(false);
       setAuth(null);
+      setLoading(false);
       return;
     }
 
     setAuth({ user, token });
+    setisLogin(true);
+    setLoading(false);
     console.log("AuthProvider: Usuario autenticado", { user, token });
-
   }, []);
 
-
   return (
-    <AuthContext.Provider value={{ auth, login, logout }}>
+    <AuthContext.Provider value={{ auth, login, logout, isLogin, loading }}>
       {children}
     </AuthContext.Provider>
   );

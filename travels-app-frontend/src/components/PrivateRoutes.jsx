@@ -5,17 +5,22 @@ import { AuthContext } from "../providers/AuthProvider";
 
 
 const PrivateRoutes = () => {
-  const {auth} = useContext(AuthContext);
+  const {auth, isLogin, loading} = useContext(AuthContext);
   console.log("PrivateRoutes: Usuario autenticado", { auth });
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (auth === null) {
-      navigate("/login");
-    }
-  }, [auth, navigate]);
+  //useEffect(() => {
+  //  if (auth === null) {
+  //    navigate("/login");
+  //  }
+  //}, [auth, navigate]);
 
-  if (auth === undefined) return <div>Loading...</div>;
+  //if (auth === undefined) return <div>Loading...</div>;
+
+if (loading) return <div>loading...</div>;
+
+if (!loading && !isLogin) return navigate('/login')
+
   console.log("PrivateRoutes: Usuario autenticado", { auth });
   return (
     <Outlet />
