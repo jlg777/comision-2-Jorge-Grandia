@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const PrivateRoutes = () => {
@@ -17,7 +17,7 @@ const PrivateRoutes = () => {
 
   if (loading) return <div>loading...</div>;
 
-  if (!loading && !isLogin) return navigate("/login");
+  if (!loading && !isLogin) return <Navigate to="login" />
 
   console.log("PrivateRoutes: Usuario autenticado", { auth });
   return <Outlet />;

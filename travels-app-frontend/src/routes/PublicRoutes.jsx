@@ -18,11 +18,11 @@ function AppPublickRouter() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/post" element={<PostPage />} />
-      <Route path="/newPostPage" element={<NewPostPage />} />
       <Route path="/travel/:postlistId" element={<TravelPage />} />
 
       <Route element={<PrivateRoutes />}>
         <Route path="/index" element={<IndexPage />} />
+        <Route path="/newPostPage" element={<NewPostPage />} />
       </Route>
 
       <Route path="*" element={<Error404Page />} />

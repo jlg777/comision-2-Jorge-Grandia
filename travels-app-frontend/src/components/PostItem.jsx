@@ -5,9 +5,13 @@ import Button from "react-bootstrap/Button";
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { BsEyeFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const PostItem = ({ posts }) => {
  
+  const {isLogin} = useContext(AuthContext);
+
+
   const navigate = useNavigate();
 
   const handleDelete = async (postsID) => {
@@ -42,7 +46,7 @@ const PostItem = ({ posts }) => {
                 
                 <BsEyeFill />
               </Button>{" "}
-              <Button variant="outline-danger">
+              <Button variant="outline-danger" className={`${isLogin ? "visible": "invisible"}`}>
                 <BsFillTrash3Fill
                   onClick={() =>
                     handleDelete(post._id).then((res) => {
