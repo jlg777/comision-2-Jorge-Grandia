@@ -7,6 +7,7 @@ import { BsPersonFill } from "react-icons/bs";
 import { SiYourtraveldottv } from "react-icons/si";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { TbLogout } from "react-icons/tb";
 
 // Obtener el valor del localStorage con la clave "user" y analizarlo como JSON
 //const userData = JSON.parse(localStorage.getItem("user"));
@@ -15,7 +16,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 
 export const NavbarApp = () => {
-  const {auth, isLogin} = useContext(AuthContext);
+  const {auth, isLogin, logout} = useContext(AuthContext);
 
   //const [isLogin, setisLogin] = useState(false);
  // useEffect(() => {
@@ -41,6 +42,9 @@ export const NavbarApp = () => {
             <Nav.Link className={`${isLogin ? "visible": "invisible"}`}>{auth && auth.user && auth.user.username}</Nav.Link>
             <Button href="login" variant="outline-secondary">
               <BsPersonFill />
+            </Button>{" "}
+            <Button variant="outline-secondary" className={`${isLogin ? "visible": "invisible"}`} onClick={logout}>
+            <TbLogout />
             </Button>{" "}
           </Nav>
         </Navbar.Collapse>
