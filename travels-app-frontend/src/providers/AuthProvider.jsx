@@ -32,9 +32,11 @@ function AuthProvider({ children }) {
     }
 
     setAuth({ user, token });
+    console.log("AuthProvider: Usuario autenticado", { user, token });
+
   }, []);
 
- console.log(auth); 
+
   return (
     <AuthContext.Provider value={{ auth, login, logout }}>
       {children}

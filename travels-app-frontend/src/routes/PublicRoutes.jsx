@@ -7,8 +7,9 @@ import PostPage from "../pages/PostPage";
 import NewPostPage from "../pages/NewPostPage";
 import TravelPage from "../pages/TravelPage";
 import Error404Page from "../pages/Error404Page";
-import PrivateRoutes from "../components/PrivateRoutes";
 import IndexPage from "../pages/IndexPage";
+import PrivateRoutes from "../components/PrivateRoutes";
+
 
 function AppPublickRouter() {
   return (
@@ -21,8 +22,8 @@ function AppPublickRouter() {
       <Route path="/travelPage/:travelID" element={<TravelPage />} />
 
       <Route element={<PrivateRoutes />}>
-      <Route path="/index" element={<IndexPage />} />
-    </Route>
+        <Route path="/index" element={<IndexPage />} />
+      </Route>
 
       <Route path="*" element={<Error404Page />} />
     </Routes>

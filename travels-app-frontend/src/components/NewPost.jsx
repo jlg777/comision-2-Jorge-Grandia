@@ -8,6 +8,7 @@ const NewPost = () => {
   //const [title, setTitle] = useState("");
   const navigate = useNavigate();
 
+
   const ref = useRef(null);
 
   const handleSubmit = (e) => {

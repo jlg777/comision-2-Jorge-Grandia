@@ -25,7 +25,7 @@ if(localStorage.getItem("user")){
 }
 
 }, []);
-console.log (auth);
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>

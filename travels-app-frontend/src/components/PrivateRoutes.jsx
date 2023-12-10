@@ -2,8 +2,11 @@ import { useContext, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
-function PrivateRoutes() {
-  const { auth } = useContext(AuthContext);
+
+
+const PrivateRoutes = () => {
+  const {auth} = useContext(AuthContext);
+  console.log("PrivateRoutes: Usuario autenticado", { auth });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,7 +16,10 @@ function PrivateRoutes() {
   }, [auth, navigate]);
 
   if (auth === undefined) return <div>Loading...</div>;
-
-  return <Outlet />;
+  console.log("PrivateRoutes: Usuario autenticado", { auth });
+  return (
+    <Outlet />
+  )
 }
-export default PrivateRoutes;
+
+export default PrivateRoutes

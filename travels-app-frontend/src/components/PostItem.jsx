@@ -7,7 +7,7 @@ import { BsEyeFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
 const PostItem = ({ posts }) => {
-  console.log("aca", posts);
+ 
   const navigate = useNavigate();
 
   const handleDelete = async (postsID) => {

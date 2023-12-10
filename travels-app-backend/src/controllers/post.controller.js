@@ -18,13 +18,14 @@ export const ctrlListPosts = async (req, res) => {
 
 export const ctrlCreatePost = async (req, res) => {
   //const userName = "Jonh Doe";
-
+ // const userId = req.user._id;
   try {
     const { title, description, imageURL } = req.body;
 
     const postlist = new PostModel({
       title,
       description,
+      autor: "65739b691c715de3b29d41fe",
       imageURL
       //username: userName,
     });
