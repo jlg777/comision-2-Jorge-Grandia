@@ -38,7 +38,8 @@ const PostItem = ({ posts }) => {
               <ListGroup.Item>{post.createdAt}</ListGroup.Item>
             </ListGroup>
             <Card.Body>
-              <Button variant="outline-success" href="travelPage">
+              <Button variant="outline-success" href={`travel/${post._id}`}>
+                
                 <BsEyeFill />
               </Button>{" "}
               <Button variant="outline-danger">

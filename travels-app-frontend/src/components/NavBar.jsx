@@ -38,7 +38,7 @@ export const NavbarApp = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/register">Registro</Nav.Link>
-            <Nav.Link href="post">Posts</Nav.Link>
+            <Nav.Link href="/post">Posts</Nav.Link>
             <Nav.Link className={`${isLogin ? "visible": "invisible"}`}>{auth && auth.user && auth.user.username}</Nav.Link>
             <Button href="login" variant="outline-secondary">
               <BsPersonFill />

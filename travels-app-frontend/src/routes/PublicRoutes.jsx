@@ -19,7 +19,7 @@ function AppPublickRouter() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/post" element={<PostPage />} />
       <Route path="/newPostPage" element={<NewPostPage />} />
-      <Route path="/travelPage/:travelID" element={<TravelPage />} />
+      <Route path="/travel/:postlistId" element={<TravelPage />} />
 
       <Route element={<PrivateRoutes />}>
         <Route path="/index" element={<IndexPage />} />

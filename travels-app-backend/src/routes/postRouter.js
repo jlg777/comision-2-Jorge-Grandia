@@ -13,6 +13,6 @@ postRouter.post("/post", ctrlCreatePost);
 
 postRouter.delete("/post/:postlistId", ctrlDeletePost);
 
-postRouter.get("/post/:postlistId", ctrlGetPost);
+postRouter.get("/travel/:postlistId", ctrlGetPost);
 
 export { postRouter };

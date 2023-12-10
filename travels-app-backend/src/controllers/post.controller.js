@@ -69,17 +69,17 @@ export const ctrlGetPost = async (req, res) => {
   const { postlistId } = req.params;
 
   try {
-    const playlist = await PostModel.findOne({
+    const postlist = await PostModel.findOne({
       _id: postlistId,
     });
     //.populate("author", ["username", "avatar"])
     //.populate("musics", ["name", "artist", "year"]);
 
-    if (!playlist) {
-      return res.status(404).json({ error: "Playlist not found" });
+    if (!postlist) {
+      return res.status(404).json({ error: "Postlist not found" });
     }
 
-    return res.status(200).json(playlist);
+    return res.status(200).json(postlist);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
