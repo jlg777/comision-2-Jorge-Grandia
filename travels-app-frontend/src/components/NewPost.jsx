@@ -1,15 +1,17 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const NewPost = () => {
   //const [title, setTitle] = useState("");
   const navigate = useNavigate();
 
-
   const ref = useRef(null);
+
+  const { auth } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,11 +22,14 @@ const NewPost = () => {
     const title = formData.get("title");
     const description = formData.get("description");
     const imageURL = formData.get("imageURL");
-
+    // Obtener el ID del usuario del localStorage
+    // const autor = localStorage.getItem("user");
+    console.log(auth.user._id);
     const post = {
       title,
       description,
       imageURL,
+      autor: auth.user._id,
     };
 
     fetch(`http://localhost:3000/post`, {

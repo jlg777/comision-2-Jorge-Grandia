@@ -18,15 +18,16 @@ export const ctrlListPosts = async (req, res) => {
 
 export const ctrlCreatePost = async (req, res) => {
   //const userName = "Jonh Doe";
- // const userId = req.user._id;
+  //const userId = req.user._id;
+  //console.log(postlists);
   try {
-    const { title, description, imageURL } = req.body;
+    const { title, description, imageURL, autor } = req.body;
 
     const postlist = new PostModel({
       title,
       description,
-      autor: "65739b691c715de3b29d41fe",
-      imageURL
+      autor,
+      imageURL,
       //username: userName,
     });
 
@@ -67,12 +68,13 @@ export const ctrlDeletePost = async (req, res) => {
 
 export const ctrlGetPost = async (req, res) => {
   const { postlistId } = req.params;
+  const userId = req.user._id;
 
   try {
     const postlist = await PostModel.findOne({
       _id: postlistId,
-    });
-    //.populate("author", ["username", "avatar"])
+      autor: userId,
+    }).populate("autor", ["username"]);
     //.populate("musics", ["name", "artist", "year"]);
 
     if (!postlist) {
