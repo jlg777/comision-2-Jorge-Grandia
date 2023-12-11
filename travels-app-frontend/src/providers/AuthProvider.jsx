@@ -41,7 +41,6 @@ function AuthProvider({ children }) {
     setAuth({ user, token });
     setisLogin(true);
     setLoading(false);
-    console.log("AuthProvider: Usuario autenticado", { user, token });
   }, []);
 
   return (
