@@ -1,3 +1,4 @@
+import { CommentModel } from "../models/CommentModel.js";
 import { PostModel } from "../models/PostModel.js";
 import { UserModel } from "../models/User.js";
 
@@ -75,11 +76,17 @@ export const ctrlGetPost = async (req, res) => {
       _id: postlistId,
       // autor: userId,
     }).populate("autor", ["username"]);
-    //.populate("musics", ["name", "artist", "year"]);
+     // .populate("comments", ["description"]);
 
     if (!postlist) {
       return res.status(404).json({ error: "Postlist not found" });
     }
+
+    // Aquí puedes agregar lógica para obtener comentarios asociados al postlist
+    const comments = await CommentModel.find();
+
+    // Agrega los comentarios al objeto postlist
+    postlist.comments = comments;
 
     return res.status(200).json(postlist);
   } catch (error) {

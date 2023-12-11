@@ -20,7 +20,7 @@ const Postchema = new Schema(
     comments: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Comments",
+        ref: "Comment",
       },
     ],
     imageURL: {

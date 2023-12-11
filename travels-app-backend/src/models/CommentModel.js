@@ -1,7 +1,7 @@
 import { model } from "mongoose";
 import { Schema } from "mongoose";
 
-const Postchema = new Schema(
+const Commentchema = new Schema(
   {
     autor: [
       {
@@ -21,4 +21,4 @@ const Postchema = new Schema(
   }
 );
 
-export const PostModel = model("Post", Postchema);
+export const CommentModel = model("Comment", Commentchema);
