@@ -68,12 +68,12 @@ export const ctrlDeletePost = async (req, res) => {
 
 export const ctrlGetPost = async (req, res) => {
   const { postlistId } = req.params;
-  const userId = req.user._id;
+  //const userId = req.user._id;
 
   try {
     const postlist = await PostModel.findOne({
       _id: postlistId,
-      autor: userId,
+      // autor: userId,
     }).populate("autor", ["username"]);
     //.populate("musics", ["name", "artist", "year"]);
 

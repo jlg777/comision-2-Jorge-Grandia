@@ -12,7 +12,7 @@ const TravelPage = () => {
   const { isLogin, auth } = useContext(AuthContext);
 
   if (auth && auth.user && auth.user._id) {
-    console.log('contexto',auth.user._id);
+    //  console.log('contexto',auth.user._id);
   }
   const navigate = useNavigate();
 
@@ -42,7 +42,7 @@ const TravelPage = () => {
       .then((data) => setPost(data))
       .catch((err) => console.log(err));
   }, [postlistId]);
-  console.log(post.autor);
+  //console.log(post.autor);
   return (
     <>
       <div className="container-fluid d-flex  flex-colum justify-content-center align-items-center">
@@ -60,10 +60,11 @@ const TravelPage = () => {
             <Button variant="outline-success" href={`travel/${post._id}`}>
               <BsEyeFill />
             </Button>{" "}
-
             <Button
               variant="outline-danger"
-              className={`${isLogin && auth.user._id == post.autor ? "visible" : "invisible"}`}
+              className={`${
+                isLogin && auth.user._id == post.autor ? "visible" : "invisible"
+              }`}
             >
               <BsFillTrash3Fill
                 onClick={() =>

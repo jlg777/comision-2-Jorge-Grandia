@@ -24,7 +24,7 @@ const NewPost = () => {
     const imageURL = formData.get("imageURL");
     // Obtener el ID del usuario del localStorage
     // const autor = localStorage.getItem("user");
-    console.log(auth.user._id);
+    //console.log(auth.user._id);
     const post = {
       title,
       description,
