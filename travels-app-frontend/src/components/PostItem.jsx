@@ -8,9 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const PostItem = ({ posts }) => {
- 
-  const {isLogin} = useContext(AuthContext);
-
+  const { isLogin } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -43,10 +41,12 @@ const PostItem = ({ posts }) => {
             </ListGroup>
             <Card.Body>
               <Button variant="outline-success" href={`travel/${post._id}`}>
-                
                 <BsEyeFill />
               </Button>{" "}
-              <Button variant="outline-danger" className={`${isLogin ? "visible": "invisible"}`}>
+              <Button
+                variant="outline-danger"
+                className={`${isLogin ? "visible" : "invisible"}`}
+              >
                 <BsFillTrash3Fill
                   onClick={() =>
                     handleDelete(post._id).then((res) => {

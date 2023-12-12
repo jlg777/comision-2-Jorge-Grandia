@@ -1,9 +1,10 @@
 import { CommentModel } from "../models/CommentModel.js";
 
 export const ctrlCreateComment = async (req, res) => {
-  const { description } = req.body;
+  const { autor, description } = req.body;
   try {
     const comment = new CommentModel({
+      autor,
       description,
     });
     await comment.save();
