@@ -6,7 +6,19 @@ export const ctrlListPosts = async (req, res) => {
   try {
     // Aquí puedes realizar alguna lógica para obtener la lista de publicaciones
     //console.log(res);
-    const postlists = await PostModel.find();
+    const postlists = await PostModel.find()
+      .populate({
+        path: "autor",
+        select: ["username", "avatarURL"],
+      })
+      .populate({
+        path: "comments",
+        select: ["description", "autor", "createdAt"],
+        populate: {
+          path: "autor",
+          select: ["username", "avatarURL"],
+        },
+      });
     // Enviar la lista de publicaciones como respuesta
     res.status(200).json(postlists);
   } catch (error) {
@@ -76,7 +88,7 @@ export const ctrlGetPost = async (req, res) => {
       _id: postlistId,
       // autor: userId,
     }).populate("autor", ["username"]);
-     // .populate("comments", ["description"]);
+    // .populate("comments", ["description"]);
 
     if (!postlist) {
       return res.status(404).json({ error: "Postlist not found" });

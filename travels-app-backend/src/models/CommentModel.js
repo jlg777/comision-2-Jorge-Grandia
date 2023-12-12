@@ -3,16 +3,18 @@ import { Schema } from "mongoose";
 
 const Commentchema = new Schema(
   {
-    autor: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
+    autor: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
 
     description: {
       type: String,
       required: true,
+    },
+    postId: {
+      type: Schema.Types.ObjectId,
+      ref: "Post",
     },
   },
   {

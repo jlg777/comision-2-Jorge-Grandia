@@ -15,14 +15,12 @@ const TravelPage = () => {
   const { isLogin, auth } = useContext(AuthContext);
 
   if (auth && auth.user && auth.user._id) {
-    console.log("contexto", auth.user._id);
     const autor = auth.user._id;
-    console.log(autor);
   }
   const navigate = useNavigate();
 
   const handleDelete = async (postsID) => {
-    return await fetch(`http://localhost:3000/post/${postsID}`, {
+    return await fetch(`http://localhost:3000/post/${postlistId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +36,7 @@ const TravelPage = () => {
       description,
     };
     console.log(newComment);
-    fetch(`http://localhost:3000/travel`, {
+    fetch(`http://localhost:3000/travel/${postlistId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

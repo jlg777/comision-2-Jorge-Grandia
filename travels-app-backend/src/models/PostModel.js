@@ -11,12 +11,11 @@ const Postchema = new Schema(
       type: String,
       required: true,
     },
-    autor: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
+    autor: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+
     comments: [
       {
         type: Schema.Types.ObjectId,
