@@ -34,7 +34,7 @@ function RegisterForm() {
         "Content-Type": "application/json",
       },
     });
-       if (req.status !== 201) return alert("Error al registrar usuario");
+    if (req.status !== 201) return alert("Error al registrar usuario");
     ref.current.reset();
     navigate("/login");
   };
@@ -86,11 +86,7 @@ function RegisterForm() {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formRegisterImage">
-        <Form.Control
-          type="link"
-          placeholder="my-avatar"
-          name="image"
-        />
+        <Form.Control type="link" placeholder="my-avatar" name="image" />
       </Form.Group>
 
       <Button variant="primary" type="submit">
