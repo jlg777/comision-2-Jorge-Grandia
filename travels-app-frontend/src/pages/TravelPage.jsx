@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { BsEyeFill } from "react-icons/bs";
 import { AuthContext } from "../providers/AuthProvider";
+import CommentItem from "../components/CommentItem";
 
 const TravelPage = () => {
   const { postlistId } = useParams();
@@ -41,8 +42,8 @@ const TravelPage = () => {
       .then((res) => res.json())
       .then((data) => setPost(data))
       .catch((err) => console.log(err));
-  }, [postlistId]);
-  //console.log(post.autor);
+  }, []);
+  console.log(post);
   return (
     <>
       <div className="container-fluid d-flex  flex-colum justify-content-center align-items-center">
@@ -53,11 +54,15 @@ const TravelPage = () => {
             <Card.Text>{post.description}</Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">
-            <ListGroup.Item>{post.comments}</ListGroup.Item>
+            <ListGroup.Item>{post.comments._id}</ListGroup.Item>
+            <ListGroup.Item>{post.comments.description}</ListGroup.Item>
+          </ListGroup>
+          <ListGroup className="list-group-flush">
             <ListGroup.Item>{post.createdAt}</ListGroup.Item>
           </ListGroup>
-          <Card.Body>
-            <Button variant="outline-success" href={`travel/${post._id}`}>
+          <CommentItem post={post} />
+          <Card.Body >
+            {/* <Button variant="outline-success" href={`travel/${post._id}`}>
               <BsEyeFill />
             </Button>{" "}
             <Button
@@ -75,7 +80,7 @@ const TravelPage = () => {
                   })
                 }
               />
-            </Button>{" "}
+            </Button>{" "}*/}
           </Card.Body>
         </Card>
       </div>
