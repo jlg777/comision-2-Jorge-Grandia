@@ -37,7 +37,9 @@ const PostItem = ({ posts }) => {
             <ListGroup className="list-group-flush">
               <ListGroup.Item>{post.username}</ListGroup.Item>
               <ListGroup.Item>{post.comments}</ListGroup.Item>
-              <ListGroup.Item>{post.createdAt}</ListGroup.Item>
+              <ListGroup.Item>
+                {new Date(post.createdAt).toLocaleString()}
+              </ListGroup.Item>
             </ListGroup>
             <Card.Body>
               <Button variant="outline-success" href={`travel/${post._id}`}>
