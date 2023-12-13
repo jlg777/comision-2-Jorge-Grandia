@@ -34,8 +34,9 @@ const TravelPage = () => {
     const newComment = {
       autor: auth.user._id,
       description,
+      postId: postlistId,
     };
-    console.log(newComment);
+    //console.log(newComment);
     fetch(`http://localhost:3000/travel/${postlistId}`, {
       method: "POST",
       headers: {
@@ -46,6 +47,7 @@ const TravelPage = () => {
       if (res.status !== 201) return alert("Error creating comment");
     });
     document.getElementById("commentForm").reset();
+    getPost();
   };
 
   const [post, setPost] = useState({
@@ -57,14 +59,18 @@ const TravelPage = () => {
     createdAt: "",
   });
 
-  useEffect(() => {
+  const getPost = () => {
     fetch(`http://localhost:3000/travel/${postlistId}`, {
       headers: {},
     })
       .then((res) => res.json())
       .then((data) => setPost(data))
       .catch((err) => console.log(err));
-  }, []);
+  };
+
+  useEffect(() => {
+    getPost();
+  }, [postlistId, auth]);
 
   return (
     <>
@@ -82,7 +88,7 @@ const TravelPage = () => {
           <ListGroup className="list-group-flush">
             <ListGroup.Item>{post.createdAt}</ListGroup.Item>
           </ListGroup>
-          {/*<CommentItem post={post} />*/}
+          <CommentItem post={post} />
           <Card.Body>
             <Button variant="outline-success" href={`travel/${post._id}`}>
               <BsEyeFill />

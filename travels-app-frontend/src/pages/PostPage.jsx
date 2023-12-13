@@ -41,7 +41,6 @@ const PostPage = () => {
           </Col>
         </Row>
       </Form>
-      <div className= "w-50 d-flex flex-colum gap-2 mt-4">
       <PostItem
         posts={posts}
 
@@ -52,7 +51,6 @@ const PostPage = () => {
           image="{post.image}"
           createdAt="{post.createdAt}" */
       />
-      </div>
     </>
   );
 };

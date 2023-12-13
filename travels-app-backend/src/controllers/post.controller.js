@@ -13,7 +13,7 @@ export const ctrlListPosts = async (req, res) => {
       })
       .populate({
         path: "comments",
-        select: ["description", "autor", "createdAt"],
+        select: ["description", "autor", "postId"],
         populate: {
           path: "autor",
           select: ["username", "avatarURL"],

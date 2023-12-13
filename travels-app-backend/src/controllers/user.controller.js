@@ -29,3 +29,16 @@ export const ctrlLoginUser = async (req, res) => {
     res.status(500).json({ error: "Couldn't login user" });
   }
 };
+
+export const ctrlUserid = async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const postlist = await UserModel.findOne({
+      _id: userId,
+    });
+    return res.status(200).json(postlist);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
