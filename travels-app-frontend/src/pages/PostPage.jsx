@@ -41,16 +41,18 @@ const PostPage = () => {
           </Col>
         </Row>
       </Form>
-      <PostItem
-        posts={posts}
+      <div className="d-flex w-40">
+        <PostItem
+          posts={posts}
 
-        /*           title="post.title" 
+          /*           title="post.title" 
           description="post.description"
           username={post.username}
           comments="post.comments"
           image="{post.image}"
           createdAt="{post.createdAt}" */
-      />
+        />
+      </div>
     </>
   );
 };
