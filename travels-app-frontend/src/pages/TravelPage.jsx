@@ -86,29 +86,11 @@ const TravelPage = () => {
             <ListGroup.Item>{post.comments.description}</ListGroup.Item>
           </ListGroup>
           <ListGroup className="list-group-flush">
-            <ListGroup.Item>{post.createdAt}</ListGroup.Item>
+          <ListGroup.Item>Creado: {new Date(post.createdAt).toLocaleString()}</ListGroup.Item>
           </ListGroup>
           <CommentItem post={post} />
           <Card.Body>
-            <Button variant="outline-success" href={`travel/${post._id}`}>
-              <BsEyeFill />
-            </Button>{" "}
-            <Button
-              variant="outline-danger"
-              className={`${
-                isLogin && auth.user._id == post.autor ? "visible" : "invisible"
-              }`}
-            >
-              <BsFillTrash3Fill
-                onClick={() =>
-                  handleDelete(post._id).then((res) => {
-                    if (res.status != 200) alert("No se elimina");
-                    else alert("Se elimina");
-                    navigate("/");
-                  })
-                }
-              />
-            </Button>{" "}
+            
           </Card.Body>
           <ListGroup className="list-group-flush">
             <Form id="commentForm">
